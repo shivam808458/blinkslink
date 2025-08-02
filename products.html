@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All T-Shirts | BlinksLink</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" class="logo" alt="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">T-Shirts</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main class="product-list">
+    <h2>10+ Trending T-Shirts</h2>
+    <div class="products" id="product-container">
+      <!-- JS Will Populate Product Cards -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BlinksLink</p>
+  </footer>
+
+  <script>
+    const products = [
+      { id: 1, name: "Classic Black Tee", price: 499, image: "images/tshirt1.jpg" },
+      { id: 2, name: "White Logo Tee", price: 599, image: "images/tshirt2.jpg" },
+      { id: 3, name: "Red Streetwear", price: 699, image: "images/tshirt3.jpg" },
+      { id: 4, name: "Oversized Grey Tee", price: 549, image: "images/tshirt4.jpg" },
+      { id: 5, name: "Printed Blue Tee", price: 579, image: "images/tshirt5.jpg" },
+      { id: 6, name: "Typography White Tee", price: 499, image: "images/tshirt6.jpg" },
+      { id: 7, name: "Dark Minimal Tee", price: 649, image: "images/tshirt7.jpg" },
+      { id: 8, name: "Anime Graphic Tee", price: 699, image: "images/tshirt8.jpg" },
+      { id: 9, name: "Bold Letter Tee", price: 459, image: "images/tshirt9.jpg" },
+      { id: 10, name: "Yellow Summer Tee", price: 499, image: "images/tshirt10.jpg" }
+    ];
+
+    const container = document.getElementById("product-container");
+
+    products.forEach(p => {
+      container.innerHTML += `
+        <div class="product">
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+          <button onclick='addToCart(${JSON.stringify(p)})' class="btn">Add to Cart</button>
+        </div>
+      `;
+    });
+
+    function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${product.name} added to cart`);
+    }
+  </script>
+</body>
+</html>
