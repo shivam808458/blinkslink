@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Detail | BlinksLink</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" class="logo" alt="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">T-Shirts</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main class="product-detail">
+    <img src="images/tshirt1.jpg" alt="T-Shirt" />
+    <div>
+      <h2 id="product-name">Classic Black Tee</h2>
+      <p>Premium quality black tee with soft cotton fabric.</p>
+      <p class="price">₹<span id="product-price">499</span></p>
+      <button class="btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BlinksLink</p>
+  </footer>
+
+  <script>
+    function addToCart() {
+      const product = {
+        name: "Classic Black Tee",
+        price: 499,
+        image: "images/tshirt1.jpg"
+      };
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart | BlinksLink</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" class="logo" alt="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">T-Shirts</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main class="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3 id="total-price"></h3>
+    <button onclick="clearCart()" class="btn">Clear Cart</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BlinksLink</p>
+  </footer>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>
